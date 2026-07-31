@@ -24,3 +24,30 @@
  * - Final bill
  * - Green Energy Program eligibility
  */
+
+const meterSebelumnya: number = 25640;
+const meterSekarang: number = 25892;
+const hargaPerKWh: number = 1650;
+const adaPanelSurya: boolean = true;
+const modeHematEnergi: boolean = false;
+
+const totalPemakaian: number = meterSekarang - meterSebelumnya;
+
+const tagihanAwal: number = totalPemakaian * hargaPerKWh;
+
+const persenDiskonSurya: number = 0.20;
+const diskonSurya: number = adaPanelSurya ? tagihanAwal * persenDiskonSurya : 0;
+
+const persenDiskonHemat: number = 0.05;
+const diskonHemat: number = modeHematEnergi ? tagihanAwal * persenDiskonHemat : 0;
+
+const totalDiskon: number = diskonSurya + diskonHemat;
+const tagihanAkhir: number = tagihanAwal - totalDiskon;
+const eligibleGreenEnergy: boolean = adaPanelSurya && totalPemakaian < 300 && modeHematEnergi;
+
+console.log(`Total Pemakaian Energi  : ${totalPemakaian} kWh`);
+console.log(`Tagihan Sebelum Diskon  : Rp${tagihanAwal.toLocaleString("id-ID")}`);
+console.log(`Diskon Panel Surya (20%): Rp${diskonSurya.toLocaleString("id-ID")}`);
+console.log(`Diskon Hemat Energi (5%): Rp${diskonHemat.toLocaleString("id-ID")}`);
+console.log(`Tagihan Akhir           : Rp${tagihanAkhir.toLocaleString("id-ID")}`);
+console.log(`Eligible Green Energy   : ${eligibleGreenEnergy ? "YA" : "TIDAK"}`);

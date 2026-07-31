@@ -34,3 +34,45 @@
  * - Free shipping eligibility
 
  */
+
+
+const hargaKeyboard: number = 850000;
+const qtyKeyboard: number = 1;
+
+const hargaMouse: number = 275000;
+const qtyMouse: number = 2;
+
+const hargaMonitorStand: number = 420000;
+const qtyMonitorStand: number = 1;
+
+const nilaiVoucher: number = 100000;
+const isPremiumMember: boolean = true;
+const rateRewardPoint: number = 50000; // 1 poin per Rp50.000
+const persenPajak: number = 0.11;
+
+const subtotalKeyboard: number = hargaKeyboard * qtyKeyboard;
+const subtotalMouse: number = hargaMouse * qtyMouse;
+const subtotalMonitorStand: number = hargaMonitorStand * qtyMonitorStand;
+const subtotalProduk: number = subtotalKeyboard + subtotalMouse + subtotalMonitorStand;
+
+const persenDiskonMember: number = 0.10;
+const diskonMember: number = isPremiumMember ? subtotalProduk * persenDiskonMember : 0;
+
+const setelahDiskonMember: number = subtotalProduk - diskonMember;
+const setelahVoucher: number = setelahDiskonMember - nilaiVoucher;
+
+const pembayaranSebelumPajak: number = setelahVoucher;
+const jumlahPajak: number = pembayaranSebelumPajak * persenPajak;
+const pembayaranAkhir: number = pembayaranSebelumPajak + jumlahPajak;
+const rewardPoint: number = Math.floor(pembayaranSebelumPajak / rateRewardPoint);
+
+const gratisOngkir: boolean = isPremiumMember || pembayaranSebelumPajak > 1500000;
+
+console.log(`Subtotal Produk           : Rp${subtotalProduk.toLocaleString("id-ID")}`);
+console.log(`Diskon Membership (10%)   : Rp${diskonMember.toLocaleString("id-ID")}`);
+console.log(`Potongan Voucher          : Rp${nilaiVoucher.toLocaleString("id-ID")}`);
+console.log(`Pembayaran Sebelum Pajak  : Rp${pembayaranSebelumPajak.toLocaleString("id-ID")}`);
+console.log(`PPN (11%)                 : Rp${jumlahPajak.toLocaleString("id-ID")}`);
+console.log(`Pembayaran Akhir          : Rp${pembayaranAkhir.toLocaleString("id-ID")}`);
+console.log(`Reward Points             : ${rewardPoint} poin`);
+console.log(`Gratis Ongkir             : ${gratisOngkir ? "YA" : "TIDAK"}`);

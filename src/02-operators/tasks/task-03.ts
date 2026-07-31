@@ -17,3 +17,15 @@
  * - Bonus
  * - Final salary
  */
+
+
+const employeeName = "Soni";
+const basicSalary = 5000000;
+const overtimeHours = 12;
+const overtimeRate = 50000;
+
+const overtimePay = overtimeHours * overtimeRate;
+const bonus = overtimeHours > 10 ? 3000000 : 0;
+const finalSalary = overtimePay + bonus;
+
+console.log('Employee name : $ {employeename')

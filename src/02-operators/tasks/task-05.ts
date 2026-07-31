@@ -33,3 +33,26 @@
  * - Calculate the remaining scholarship budget.
  * - Display whether the student is accepted.
  */
+
+const namaSiswa: string = "Alya Putri";
+const GPA: number = 3.89;
+const pendapatanKeluarga: number = 4200000;
+const jumlahKompetisi: number = 4;
+const adaPelanggaran: boolean = false;
+const dokumenLengkap: boolean = true;
+
+const syaratGPA: boolean = GPA >= 3.75;
+const syaratPendapatan: boolean = pendapatanKeluarga < 5000000;
+const syaratKompetisi: boolean = jumlahKompetisi >= 3;
+const syaratDisiplin: boolean = adaPelanggaran === false;
+const syaratDokumen: boolean = dokumenLengkap === true;
+
+const lolosBeasiswa: boolean = syaratGPA && syaratPendapatan && syaratKompetisi && syaratDisiplin && syaratDokumen;
+const jumlahBeasiswa: number = lolosBeasiswa ? 12000000 : 0;
+const totalBudget: number = 500000000;
+const sisaBudget: number = totalBudget - jumlahBeasiswa;
+
+console.log(`Nama Mahasiswa   : ${namaSiswa}`);
+console.log(`Status Diterima  : ${lolosBeasiswa ? "DITERIMA" : "TIDAK DITERIMA"}`);
+console.log(`Jumlah Beasiswa  : Rp${jumlahBeasiswa.toLocaleString("id-ID")}`);
+console.log(`Sisa Budget      : Rp${sisaBudget.toLocaleString("id-ID")}`);

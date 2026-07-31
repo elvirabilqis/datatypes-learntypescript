@@ -14,3 +14,24 @@
  *  - Final payment
  * 2. Display the calculation results.
  */
+
+const friedricePrice: number = 18000;
+const friedRiceQty: number = 3;
+
+const waterPrice: number = 5000;
+const waterQty: number = 2;
+
+const discount: number = 10000;
+
+const totalFriedRice: number = friedricePrice * friedRiceQty;
+const totalDrinks: number = waterPrice * waterQty;
+const grandTotal: number = totalFriedRice + totalDrinks;
+const finalPayment: number = grandTotal - discount;
+
+console.log("=== Cafeteria Order Summary ===");
+console.log("Fried Rice  :", friedRiceQty, "x Rp" + friedricePrice.toLocaleString("id-ID"), "=", "Rp" + totalFriedRice.toLocaleString("id-ID"));
+console.log("Mineral Water:", waterQty, "x Rp" + waterPrice.toLocaleString("id-ID"), "=", "Rp" + totalDrinks.toLocaleString("id-ID"));
+console.log("--------------------------------");
+console.log("Grand Total (before discount) : Rp" + grandTotal.toLocaleString("id-ID"));
+console.log("Discount                      : Rp" + discount.toLocaleString("id-ID"));
+console.log("Final Payment                 : Rp" + finalPayment.toLocaleString("id-ID"));
