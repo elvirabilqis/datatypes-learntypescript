@@ -19,13 +19,16 @@
  */
 
 
-const employeeName = "Soni";
+const employeeName = "soni";
 const basicSalary = 5000000;
 const overtimeHours = 12;
 const overtimeRate = 50000;
 
 const overtimePay = overtimeHours * overtimeRate;
-const bonus = overtimeHours > 10 ? 3000000 : 0;
-const finalSalary = overtimePay + bonus;
+const bonus = overtimeHours > 10 ? 300000 : 0;
+const finalSalary =overtimePay + bonus;
 
-console.log('Employee name : $ {employeename')
+console.log(`employee name: ${employeeName}`)
+console.log(`overtime pay : ${overtimePay}`)
+console.log(`bonus : ${bonus}`)
+console.log(`finalsalary : ${finalSalary}`)
