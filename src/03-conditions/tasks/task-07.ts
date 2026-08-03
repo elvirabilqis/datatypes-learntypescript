@@ -30,3 +30,36 @@
  * 2. Implement both screening stages.
  * 3. Display the loan decision.
  */
+
+
+const applicant: string = "Andi Wijaya";
+const monthlyIncome: number = 10000000;
+const creditScore: number = 725;
+const existingDebt: number = 2500000;
+const permanentEmployee: boolean = true;
+let loanDecision: string = "";
+
+const lolosTahap1: boolean = monthlyIncome >= 8000000 && creditScore >= 700;
+
+if (lolosTahap1) {
+  
+  const maximumdebtLimit: number = monthlyIncome * 0.3;
+  const eligibleDebt: boolean = existingDebt <= maximumdebtLimit;
+
+  const lolosTahap2: boolean = eligibleDebt && permanentEmployee === true;
+
+if (lolosTahap2) {
+    loanDecision = "Loan Approved";
+  } else {
+    loanDecision = "Manual Review";
+  }
+} else {
+  loanDecision = "Loan Rejected";
+}
+
+console.log(`Nama Pemohon       : ${applicant}`);
+console.log(`Pendapatan Bulanan : Rp${monthlyIncome.toLocaleString("id-ID")}`);
+console.log(`Skor Kredit        : ${creditScore}`);
+console.log(`Hutang Saat Ini    : Rp${existingDebt.toLocaleString("id-ID")}`);
+console.log(`Karyawan Tetap     : ${permanentEmployee ? "Ya" : "Tidak"}`);
+console.log(`Keputusan Pinjaman : ${loanDecision}`);

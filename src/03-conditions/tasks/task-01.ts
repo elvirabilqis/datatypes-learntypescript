@@ -20,3 +20,19 @@
  * will be display "Congratulations! You are eligible to graduate.", 
  * otherwise display "You are not eligible to graduate."
  */
+
+import { toUSVString } from "node:util";
+
+
+const studentName: string = "Alya Putri";
+const finalScore: number = 82;
+const Attendance: number = 94;
+const tuitionPaid: boolean = true;
+
+if (finalScore >= 75 && Attendance >= 90 && tuitionPaid === true) {
+  console.log(`Nama Siswa: ${studentName}`);
+  console.log("Congratulations! You are eligible to graduate.");
+} else {
+  console.log(`Nama Siswa: ${studentName}`);
+  console.log("You are not eligible to graduate.");
+}
