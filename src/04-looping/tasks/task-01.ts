@@ -15,3 +15,16 @@
  * 3. After the loop finishes, display: "Attendance verification completed"
 
  */
+
+const totalSiswa: number = 30;
+const siswaSakit: number[] = [12, 25];
+
+for (let i = 1; i <= totalSiswa; i++) {
+    console.log(`Checking attendance for Student #${i}`);
+
+if (siswaSakit.includes(i)) {
+        console.log(`Student #${i} is sick (ABSENT).`);
+    }
+}
+
+console.log("Attendance verification completed.")

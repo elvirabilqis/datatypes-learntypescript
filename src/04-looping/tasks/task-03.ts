@@ -23,3 +23,32 @@
  * - Number of passing students
  * - Number of failing students
  */
+
+
+const scores: number[] = [
+    82, 75, 91, 64, 88, 73, 95, 80, 69, 77, 84, 92, 58, 79, 86, 71, 90, 67, 83, 76
+];
+
+const nilaiKelulusan: number = 75;
+
+let totalNilai: number = 0;
+let jumlahLulus: number = 0;
+let jumlahGagal: number = 0;
+
+for (let i = 0; i < scores.length; i++) {
+  const nilai: number = scores[i];
+totalNilai += nilai;
+if (nilai >= nilaiKelulusan) {
+    jumlahLulus++;
+  } else {
+    jumlahGagal++;
+  }
+}
+
+const rataRataNilai: number = totalNilai / scores.length;
+
+console.log(`Jumlah Siswa       : ${scores.length}`);
+console.log(`Total Nilai        : ${totalNilai}`);
+console.log(`Rata-rata Nilai    : ${rataRataNilai.toFixed(2)}`);
+console.log(`Jumlah Lulus       : ${jumlahLulus} siswa`);
+console.log(`Jumlah Gagal       : ${jumlahGagal} siswa`);
