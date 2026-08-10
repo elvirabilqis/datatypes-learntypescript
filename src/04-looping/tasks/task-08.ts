@@ -21,3 +21,31 @@ const orders = [
   { id: "ORD005", paid: false, stockAvailable: false },
   { id: "ORD006", paid: true, stockAvailable: true }
 ];
+
+let jumlahSiapKirim: number = 0;
+let jumlahBelumBayar: number = 0;
+let jumlahMenungguStok: number = 0;
+const orderSiapKirim: string[] = [];
+
+for (let i = 0; i < orders.length; i++) {
+  const order = orders[i];
+
+  if (order.paid && order.stockAvailable) {
+    jumlahSiapKirim++;
+    orderSiapKirim.push(order.id);
+  }
+
+  if (!order.paid) {
+    jumlahBelumBayar++;
+  }
+
+  if (order.paid && !order.stockAvailable) {
+    jumlahMenungguStok++;
+  }
+}
+
+console.log(`Total Order              : ${orders.length} order`);
+console.log(`Siap Kirim               : ${jumlahSiapKirim} order`);
+console.log(`Belum Bayar              : ${jumlahBelumBayar} order`);
+console.log(`Menunggu Stok            : ${jumlahMenungguStok} order`);
+console.log(`ID Order Siap Kirim      : ${orderSiapKirim.join(", ")}`);

@@ -1,4 +1,3 @@
-
 /**
  * An LMS stores assignment submission information on array below.
  * Business Rules
@@ -26,3 +25,4 @@ const submissions = [
     { student: "Gita", submitted: true, score: 90 },
     { student: "Hana", submitted: true, score: 73 }
 ];
+
