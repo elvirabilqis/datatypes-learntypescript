@@ -18,3 +18,15 @@ const prices = [
     420000,
     125000
 ];
+
+function calculateTotalPrice(pricesArray: number[]): number {
+  let total: number = 0;
+
+  for (let i = 0; i < pricesArray.length; i++) {
+    total += pricesArray[i];
+  }
+
+  return total;
+}
+const totalHarga: number = calculateTotalPrice(prices);
+console.log(`Total Pembelian: Rp${totalHarga.toLocaleString("id-ID")}`);

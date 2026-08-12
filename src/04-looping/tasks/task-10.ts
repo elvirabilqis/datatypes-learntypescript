@@ -26,3 +26,42 @@ const submissions = [
     { student: "Hana", submitted: true, score: 73 }
 ];
 
+let jumlahMengumpulkan: number = 0;
+let jumlahTidakMengumpulkan: number = 0;
+let jumlahLulus: number = 0;
+let jumlahRevisi: number = 0;
+let totalNilai: number = 0;
+
+const siswaTidakMengumpulkan: string[] = [];
+const siswaRevisi: string[] = [];
+const nilaiKelulusan: number = 75;
+
+for (let i = 0; i < submissions.length; i++) {
+const data = submissions[i];
+
+totalNilai += data.score;
+
+if (data.submitted) {
+    jumlahMengumpulkan++;
+
+if (data.score >= nilaiKelulusan) {
+jumlahLulus++;
+} else {
+jumlahRevisi++;
+siswaRevisi.push(data.student);
+}
+} else {
+jumlahTidakMengumpulkan++;
+siswaTidakMengumpulkan.push(data.student);
+  }
+}
+const rataRataKelas: number = totalNilai / submissions.length;
+
+console.log(`Total Siswa                : ${submissions.length} siswa`);
+console.log(`Mengumpulkan Tugas         : ${jumlahMengumpulkan} siswa`);
+console.log(`Tidak Mengumpulkan Tugas   : ${jumlahTidakMengumpulkan} siswa`);
+console.log(`Lulus                      : ${jumlahLulus} siswa`);
+console.log(`Perlu Revisi               : ${jumlahRevisi} siswa`);
+console.log(`Nama Tidak Mengumpulkan    : ${siswaTidakMengumpulkan.join(", ")}`);
+console.log(`Nama Perlu Revisi          : ${siswaRevisi.join(", ")}`);
+console.log(`Rata-rata Nilai Kelas      : ${rataRataKelas.toFixed(2)}`);
