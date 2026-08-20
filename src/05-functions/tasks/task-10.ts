@@ -167,7 +167,7 @@ function printCompletionStatistics(data: Enrollment[]): void {
   const incomplete: number = countIncompleteEnrollments(data);
   const percentage: number = calculateCompletionPercentage(data);
 
-  console.log("--- Completion Statistics ---");
+  console.log(" Completion Statistics ");
   console.log(`Total Enrollments      : ${total}`);
   console.log(`Completed Enrollments  : ${completed}`);
   console.log(`Incomplete Enrollments : ${incomplete}`);
@@ -180,7 +180,7 @@ function printAcademicStatistics(data: Enrollment[]): void {
   const average: number = calculateAverageScore(data);
   const passing: number = countPassingStudents(data);
 
-  console.log("--- Academic Statistics ---");
+  console.log(" Academic Statistics ");
   console.log(`Highest Score          : ${highest}`);
   console.log(`Lowest Score           : ${lowest}`);
   console.log(`Average Score          : ${average.toFixed(2)}`);
@@ -190,7 +190,7 @@ function printAcademicStatistics(data: Enrollment[]): void {
 function printCourseStatistics(data: Enrollment[]): void {
   const daftarKursus: string[] = getUniqueCourses(data);
 
-  console.log("--- Course Statistics ---");
+  console.log(" Course Statistics ");
   for (let i = 0; i < daftarKursus.length; i++) {
     const course: string = daftarKursus[i];
     const jumlahSiswa: number = countStudentsByCourse(data, course);
@@ -204,18 +204,17 @@ function printLearningStatistics(data: Enrollment[]): void {
   const totalJam: number = calculateTotalLearningHours(data);
   const rataRataDurasi: number = calculateAverageLearningDuration(data);
 
-  console.log("--- Learning Statistics ---");
+  console.log(" Learning Statistics ");
   console.log(`Total Learning Hours   : ${totalJam} hours`);
   console.log(`Average Duration       : ${rataRataDurasi.toFixed(2)} hours`);
 }
 
 function printDashboard(data: Enrollment[]): void {
-  console.log("===== Online Learning Platform Dashboard =====");
+  console.log(" Online Learning Platform Dashboard ");
   printCompletionStatistics(data);
   printAcademicStatistics(data);
   printCourseStatistics(data);
   printLearningStatistics(data);
-  console.log("================================================");
+  console.log("===================");
 }
-
 printDashboard(enrollments);

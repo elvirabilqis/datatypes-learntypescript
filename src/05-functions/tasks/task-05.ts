@@ -94,7 +94,5 @@ function printReport(scores: number[]): void {
   console.log(`Passed Students    : ${jumlahLulus} (score >= ${nilaiKelulusan})`);
   console.log("================================================");
 }
-
-// Panggil fungsi laporan
 printReport(scores);
 

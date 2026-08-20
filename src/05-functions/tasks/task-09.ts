@@ -157,5 +157,4 @@ function printHospitalReport(data: Patient[]): void {
   console.log(`Admitted Patient Names    : ${namaAdmitted.join(", ")}`);
   console.log("===================================");
 }
-
 printHospitalReport(patients);

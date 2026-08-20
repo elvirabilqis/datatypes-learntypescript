@@ -37,7 +37,7 @@ function printAttendanceReport(attendanceArray: { name: string; present: boolean
       siswaTidakHadir.push(siswa.name);
     }
   }
-console.log("===== Attendance Report =====");
+console.log("== Attendance Report ==");
 console.log(`Total Present : ${totalHadir}`);
 console.log(`Total Absent  : ${totalTidakHadir}`);
 console.log(`Absent Students: ${siswaTidakHadir.join(", ")}`);

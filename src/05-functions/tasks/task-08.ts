@@ -147,5 +147,4 @@ function printAssignmentReport(data: Submission[]): void {
   console.log(`Lowest Score          : ${terendah}`);
   console.log("==========================================");
 }
-
 printAssignmentReport(submissions);

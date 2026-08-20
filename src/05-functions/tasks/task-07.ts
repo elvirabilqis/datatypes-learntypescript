@@ -98,5 +98,4 @@ function printEnrollmentReport(students: Student[]): void {
   console.log(`Multimedia                : ${jumlahMultimedia}`);
   console.log("==========================================");
 }
-
 printEnrollmentReport(students);
