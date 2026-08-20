@@ -25,22 +25,72 @@ const sales = [
   820000
 ];
 
-function calculateTotalSales(sales: number[]): number {
 
+function calculateTotalSales(sales: number[]): number {
+  let total: number = 0;
+
+  for (let i = 0; i < sales.length; i++) {
+    total += sales[i];
+  }
+
+  return total;
 }
 
-function findHighestTransaction(sales: number[]): number {
 
+function findHighestTransaction(sales: number[]): number {
+  let tertinggi: number = sales[0];
+
+  for (let i = 0; i < sales.length; i++) {
+    if (sales[i] > tertinggi) {
+      tertinggi = sales[i];
+    }
+  }
+
+  return tertinggi;
 }
 
 function findLowestTransaction(sales: number[]): number {
+  let terendah: number = sales[0];
 
+  for (let i = 0; i < sales.length; i++) {
+    if (sales[i] < terendah) {
+      terendah = sales[i];
+    }
+  }
+
+  return terendah;
 }
 
 function calculateAverageSale(sales: number[]): number {
-
+  const total: number = calculateTotalSales(sales);
+  return total / sales.length;
 }
 
 function countLargeTransactions(sales: number[], minimumAmount: number): number {
+  let jumlah: number = 0;
 
+  for (let i = 0; i < sales.length; i++) {
+    if (sales[i] > minimumAmount) {
+      jumlah++;
+    }
+  }
+
+  return jumlah;
 }
+
+function printSalesDashboard(sales: number[]): void {
+  const total: number = calculateTotalSales(sales);
+  const tertinggi: number = findHighestTransaction(sales);
+  const terendah: number = findLowestTransaction(sales);
+  const rataRata: number = calculateAverageSale(sales);
+  const jumlahBesar: number = countLargeTransactions(sales, 500000);
+
+  console.log("===== Daily Sales Dashboard =====");
+  console.log(`Total Sales               : Rp${total.toLocaleString("id-ID")}`);
+  console.log(`Highest Transaction       : Rp${tertinggi.toLocaleString("id-ID")}`);
+  console.log(`Lowest Transaction        : Rp${terendah.toLocaleString("id-ID")}`);
+  console.log(`Average Transaction       : Rp${rataRata.toLocaleString("id-ID")}`);
+  console.log(`Transactions > Rp500.000  : ${jumlahBesar} transaksi`);
+  console.log("==================================");
+}
+printSalesDashboard(sales);
